@@ -7,12 +7,26 @@ for j in range(1):
     for i in range(idx):
         b[i] = b[i+1]
     b[idx] = temp
-a = []
+print(b)
+
+# right shift append
+# # a = []
+# for i in b:
+#     a += [i]
+# now put a number at index 3
+# a += [0]
+# for i in range(n + 1 - idx):
+#     a[n-i] = a[n-i-1]
+# a[idx] = 0
+# print(a)
+
+#left shift append
+elem = 100
+a = [0]
 for i in b:
     a += [i]
-# now put a number at index 3
-a += [0]
-for i in range(n + 1 - idx):
-    a[n-i] = a[n-i-1]
-a[idx] = 0
-print(a)
+for i in range(idx):
+    a[i] = a[i + 1]
+a[idx] = elem
+b = a
+print(b)
