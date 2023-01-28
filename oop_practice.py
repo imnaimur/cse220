@@ -17,36 +17,65 @@
 # # print("===============")
 # # c2 = Course("CSE111", "TBA", 9)
 # # c2.detail()
-class Student:
-    id = 0
-    def __init__(self,name,dept,age,cg) -> None:
-        Student.id +=1
-        self.name = name
-        self.age = age
-        self.dept = dept
-        self.cg = cg
+# class Student:
+#     id = 0
+#     def __init__(self,name,dept,age,cg) -> None:
+#         Student.id +=1
+#         self.name = name
+#         self.age = age
+#         self.dept = dept
+#         self.cg = cg
 
-    @classmethod
-    def from_String(cls,string):
-        string = string.split("-")
-        i,j,k,l = tuple(string)
-        return Student(i,j,k,l)
-    def get_details(self):
-        print("ID:", Student.id)
-        print("Name:",self.name)
-        print("Department:",self.dept)
-        print("Age:", self.age)
-        print("CGPA:", self.cg)
+#     @classmethod
+#     def from_String(cls,string):
+#         string = string.split("-")
+#         i,j,k,l = tuple(string)
+#         return Student(i,j,k,l)
+#     def get_details(self):
+#         print("ID:", Student.id)
+#         print("Name:",self.name)
+#         print("Department:",self.dept)
+#         print("Age:", self.age)
+#         print("CGPA:", self.cg)
     
 
-s1 = Student("Samin", "CSE", 21, 3.91)
-s1.get_details()
-print("-----------------------")
-s2 = Student("Fahim", "ECE", 21, 3.85)
-s2.get_details()
-print("-----------------------")
-s3 = Student("Tahura", "EEE", 22, 3.01)
-s3.get_details()
-print("-----------------------")
-s4 = Student.from_String("Sumaiya-BBA-23-3.96")
-s4.get_details()
+# s1 = Student("Samin", "CSE", 21, 3.91)
+# s1.get_details()
+# print("-----------------------")
+# s2 = Student("Fahim", "ECE", 21, 3.85)
+# s2.get_details()
+# print("-----------------------")
+# s3 = Student("Tahura", "EEE", 22, 3.01)
+# s3.get_details()
+# print("-----------------------")
+# s4 = Student.from_String("Sumaiya-BBA-23-3.96")
+# s4.get_details()
+
+class Assassin:
+    total = 0
+    def __init__(self,name,rate) -> None:
+        Assassin.total += 1
+        self.name = name
+        self.rate = rate
+    
+    @classmethod
+    def failureRate(cls,name,rate):
+        sub = 100 - rate
+        return Assassin(name,sub)
+    @classmethod
+    def failurePercentage(cls,name,rate):
+        sub = 100 - int(rate[:-1:])
+        return Assassin(name,sub)
+    def printDetails(self):
+        print("Name:",self.name)
+        print(f"Success rate: {self.rate}%")
+        print("Total number of Assassin", Assassin.total)
+
+john_wick = Assassin('John Wick', 100)
+john_wick.printDetails()
+print('================================')
+nagisa = Assassin.failureRate("Nagisa", 20)
+nagisa.printDetails()
+print('================================')
+akabane = Assassin.failurePercentage("Akabane", "10%")
+akabane.printDetails()
