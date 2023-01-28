@@ -51,31 +51,65 @@
 # s4 = Student.from_String("Sumaiya-BBA-23-3.96")
 # s4.get_details()
 
-class Assassin:
-    total = 0
-    def __init__(self,name,rate) -> None:
-        Assassin.total += 1
-        self.name = name
-        self.rate = rate
+# class Assassin:
+#     total = 0
+#     def __init__(self,name,rate) -> None:
+#         Assassin.total += 1
+#         self.name = name
+#         self.rate = rate
     
-    @classmethod
-    def failureRate(cls,name,rate):
-        sub = 100 - rate
-        return Assassin(name,sub)
-    @classmethod
-    def failurePercentage(cls,name,rate):
-        sub = 100 - int(rate[:-1:])
-        return Assassin(name,sub)
-    def printDetails(self):
-        print("Name:",self.name)
-        print(f"Success rate: {self.rate}%")
-        print("Total number of Assassin", Assassin.total)
+#     @classmethod
+#     def failureRate(cls,name,rate):
+#         sub = 100 - rate
+#         return Assassin(name,sub)
+#     @classmethod
+#     def failurePercentage(cls,name,rate):
+#         sub = 100 - int(rate[:-1:])
+#         return Assassin(name,sub)
+#     def printDetails(self):
+#         print("Name:",self.name)
+#         print(f"Success rate: {self.rate}%")
+#         print("Total number of Assassin", Assassin.total)
 
-john_wick = Assassin('John Wick', 100)
-john_wick.printDetails()
-print('================================')
-nagisa = Assassin.failureRate("Nagisa", 20)
-nagisa.printDetails()
-print('================================')
-akabane = Assassin.failurePercentage("Akabane", "10%")
-akabane.printDetails()
+# john_wick = Assassin('John Wick', 100)
+# john_wick.printDetails()
+# print('================================')
+# nagisa = Assassin.failureRate("Nagisa", 20)
+# nagisa.printDetails()
+# print('================================')
+# akabane = Assassin.failurePercentage("Akabane", "10%")
+# akabane.printDetails()
+
+class Passenger:
+    count = 0
+    def __init__(self,name) -> None:
+        Passenger.count += 1
+        self.name = name
+    def set_bag_weight(self,w):
+        if(w>50):
+            ext_f = 100
+        elif(20<w<51):
+            ext_f = 50
+        else:
+            ext_f = 0
+        self.total = 450 + ext_f
+    def printDetail(self):
+        print("Name: ", self.name)
+        print("Bus Fare:", self.total)
+
+
+print("Total Passenger:", Passenger.count) 
+p1 = Passenger("Jack") 
+p1.set_bag_weight(90) 
+p2 = Passenger("Carol") 
+p2.set_bag_weight(10) 
+p3 = Passenger("Mike") 
+p3.set_bag_weight(25) 
+print("=========================") 
+p1.printDetail() 
+print("=========================") 
+p2.printDetail() 
+print("=========================") 
+p3.printDetail() 
+print("=========================") 
+print("Total Passenger:", Passenger.count)
