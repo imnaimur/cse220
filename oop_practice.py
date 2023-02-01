@@ -80,36 +80,76 @@
 # akabane = Assassin.failurePercentage("Akabane", "10%")
 # akabane.printDetails()
 
-class Passenger:
+# class Passenger:
+#     count = 0
+#     def __init__(self,name) -> None:
+#         Passenger.count += 1
+#         self.name = name
+#     def set_bag_weight(self,w):
+#         if(w>50):
+#             ext_f = 100
+#         elif(20<w<51):
+#             ext_f = 50
+#         else:
+#             ext_f = 0
+#         self.total = 450 + ext_f
+#     def printDetail(self):
+#         print("Name: ", self.name)
+#         print("Bus Fare:", self.total)
+
+
+# print("Total Passenger:", Passenger.count) 
+# p1 = Passenger("Jack") 
+# p1.set_bag_weight(90) 
+# p2 = Passenger("Carol") 
+# p2.set_bag_weight(10) 
+# p3 = Passenger("Mike") 
+# p3.set_bag_weight(25) 
+# print("=========================") 
+# p1.printDetail() 
+# print("=========================") 
+# p2.printDetail() 
+# print("=========================") 
+# p3.printDetail() 
+# print("=========================") 
+# print("Total Passenger:", Passenger.count)
+
+
+class Travel:
     count = 0
-    def __init__(self,name) -> None:
-        Passenger.count += 1
-        self.name = name
-    def set_bag_weight(self,w):
-        if(w>50):
-            ext_f = 100
-        elif(20<w<51):
-            ext_f = 50
-        else:
-            ext_f = 0
-        self.total = 450 + ext_f
-    def printDetail(self):
-        print("Name: ", self.name)
-        print("Bus Fare:", self.total)
+    def __init__(self,source,destination) -> None:
+        Travel.count += 1
+        self.s = source
+        self.d = destination
+        self.h = 1
+    def set_time(self,h):
+        self.h = h
+    def display_travel_info(self):
+        return f"Source: {self.s}\nDestination: {self.d}\nFlight time: {self.h}.00"
+    def set_source(self,s):
+        self.s = s
+    def set_destination(self,d):
+        self.d = d
 
 
-print("Total Passenger:", Passenger.count) 
-p1 = Passenger("Jack") 
-p1.set_bag_weight(90) 
-p2 = Passenger("Carol") 
-p2.set_bag_weight(10) 
-p3 = Passenger("Mike") 
-p3.set_bag_weight(25) 
-print("=========================") 
-p1.printDetail() 
-print("=========================") 
-p2.printDetail() 
-print("=========================") 
-p3.printDetail() 
-print("=========================") 
-print("Total Passenger:", Passenger.count)
+print("No. of Traveller =", Travel.count)
+print("=======================")
+t1 = Travel("Dhaka","India")
+print(t1.display_travel_info())
+print("=======================")
+t2 = Travel("Kuala Lampur","Dhaka")
+t2.set_time(23)
+print(t2.display_travel_info())
+print("=======================")
+t3 = Travel("Dhaka","New_Zealand")
+t3.set_time(15)
+t3.set_destination("Germany")
+print(t3.display_travel_info())
+print("=======================")
+t4 = Travel("Dhaka","India")
+t4.set_time(9)
+t4.set_source("Malaysia")
+t4.set_destination("Canada")
+print(t4.display_travel_info())
+print("=======================")
+print("No. of Traveller =", Travel.count)
