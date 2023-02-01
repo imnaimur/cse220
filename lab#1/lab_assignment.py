@@ -18,6 +18,17 @@ def deviation(lst):
     return float("%.2f"%std_dev)
 
 
+def newArray(lst):
+    arr= []
+    m = mean(lst)
+    n = deviation(lst)
+    lower_range = m -(1.5*n)
+    higher_range = m + (1.5*n)
+    for i in lst:
+        if i<lower_range or i> higher_range:
+            arr+=[i]
+    return arr
+
 
 
 lst = [10, 8, 13, 9, 14, 25, -5, 20, 7, 7, 4]
@@ -25,5 +36,5 @@ r1 = mean(lst)
 print(r1)
 r2 = deviation(lst)
 print(r2)
-# r3 = newArray(lst)
-# print(r3)
+r3 = newArray(lst)
+print(r3)
