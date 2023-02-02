@@ -80,3 +80,13 @@ n = len(source)
 idx = int(input())
 ponchom = remove(source,2)
 print(ponchom)
+
+def removeAll(lst,k):
+    arr = []
+    for i in lst:
+        if i != k:
+            arr +=[i]
+    return arr
+
+shostho = removeAll(source,idx)
+
