@@ -33,3 +33,18 @@ for j in range(k):
         source[n-i] = source[n-1-i]
     source[j] = 0
 print(source)
+
+
+#right rotate k cells
+
+source=[10,20,30,40,50,60]
+n = len(source)
+k = int(input())
+
+for j in range(k):
+    temp_storage= source[n-1]
+    for i in range(1,n):
+        source[n-i] = source[n-1-i]
+    source[0] = temp_storage
+
+print(source)
