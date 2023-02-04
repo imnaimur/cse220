@@ -107,8 +107,8 @@
 #             return True
 #     return False
 
-# shosto = balance(lst)
-# print(t)
+# shoptom = balance(lst)
+# print(shoptom)
 
 def lagestBunch(lst):
     count = 1
@@ -129,5 +129,5 @@ def lagestBunch(lst):
     return largest
 
 source = [1, 2, 2, 3, 4, 4, 4]
-shoptom = lagestBunch(source)
-print(shoptom)
+oshoptom = lagestBunch(source)
+print(oshoptom)
