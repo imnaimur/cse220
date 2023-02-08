@@ -24,24 +24,47 @@ def Billboard(txt1,txt2):
         print("Top Board Start Index:",top_idx)
         print("Bottom Board Start Character:",bottom_char)
         print("Bottom Board Start Character:",bottom_idx)
+
+        # so that if later i change stating idx it should reamin change
+        st1 = top_idx
+        st2 = bottom_idx
+        string_top = ""
+        string_bottom = ""
+        i = 0
+        controler = 0
+        if controler > n1:
+            controler = 0
+
+
+
         while True:
+
             press = input("Enter q to quite or any key to continue: ")
             if press == "q" or press == "Q":
                 break
+
+
             else:
-                print("run")
                 i = 0
-                j = 0
-                st = top_idx
-                while i < n1-1:
-                    print(txt1[st],end="")
-                    st -= 1
-                    if st <0:
-                        st = n1-1
+                while i < n1:
+                    string_top += arr[0][st1]
+                    st1 -=1
+                    if st1 < 0:
+                        st1 = n1-1
+                    print(string_top[i],end="")
+                    i +=1
+                print()
+      
+                i = 0
+                while i < n1:
+                    string_bottom += arr[1][st2]
+                    st2+=1
+                    if st2 >n2-1:
+                        st2 = 0
+                    print(string_bottom[i],end="")
                     i += 1
                 print()
-                st = 0
-
+                
 
 
 
