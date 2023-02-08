@@ -28,50 +28,70 @@ def Billboard(txt1,txt2):
         # so that if later i change stating idx it should reamin change
         st1 = top_idx
         st2 = bottom_idx
-        string_top = ""
-        string_bottom = ""
+        string_top = []
+        string_bottom = []
         i = 0
         controler = 0
-        if controler > n1:
-            controler = 0
 
 
 
         while True:
 
-            press = input("Enter q to quite or any key to continue: ")
+            press = input("Enter q/Q to quite or any key to continue: ")
             if press == "q" or press == "Q":
                 break
 
 
             else:
                 i = 0
-                while i < n1:
-                    string_top += arr[0][st1]
-                    st1 -=1
-                    if st1 < 0:
-                        st1 = n1-1
-                    print(string_top[i],end="")
-                    i +=1
+                if controler ==0:
+                    while i < n1:
+                        string_top += [arr[0][st1]]
+                        st1 -=1
+                        if st1 < 0:
+                            st1 = n1-1
+                        print(string_top[i],end="")
+                        i += 1
+                        
+                else:
+                    i = 0
+                    while i < n1-1:
+                        string_top[i] = string_top[i+1]
+                        string_top[n1-1] = temp
+                        print(string_top[i],end="")
+                        
+                        i +=1
                 print()
+                temp=string_top[0]
       
-                i = 0
-                while i < n1:
-                    string_bottom += arr[1][st2]
-                    st2+=1
-                    if st2 >n2-1:
-                        st2 = 0
-                    print(string_bottom[i],end="")
-                    i += 1
+                if controler == 0:
+                    i = 0
+                    while i < n1:
+                        string_bottom += [arr[1][st2]]
+                        st2+=1
+                        if st2 >n2-1:
+                            st2 = 0
+                        print(string_bottom[i],end="")
+                        i += 1
+                else:
+                    i = 0
+                    while i < n2-1:
+                        string_bottom[i] = string_bottom[i+1]
+                        string_bottom[n1-1] = temp1
+                        print(string_bottom[i],end="") 
+                        i +=1            
                 print()
+                temp1 = string_bottom[0]
+
+
+                controler = 1
                 
 
 
 
 
 
-# txt1 = input()
-# txt2 = input()
-txt1 = "giRtfel2th"
-txt2 = "rightLeft2"
+
+txt1 = input("enter top text: ")
+txt2 = input("Enter bottom text: ")
 t = Billboard(txt1,txt2)
