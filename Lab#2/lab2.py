@@ -12,12 +12,12 @@ def Billboard(txt1,txt2):
     else:
         for i in range (n1):
             arr[0][i] = txt1[i]
-            if  65 <= ord(txt1[i]) <= 90:
+            if  "A" <= txt1[i] <= "Z":
                 top_char = txt1[i]
                 top_idx = i
         for i in range (n2):
             arr[1][i] = txt2[i]
-            if  65 <= ord(txt2[i]) <= 90:
+            if  "A" <= txt2[i] <= "Z":
                 bottom_char = txt2[i]
                 bottom_idx = i
         print("Top Board Start Character: ",top_char)
@@ -25,7 +25,9 @@ def Billboard(txt1,txt2):
         print("Bottom Board Start Character:",bottom_char)
         print("Bottom Board Start Character:",bottom_idx)
 
-        # so that if later i change stating idx it should reamin change
+    #----------Variable desk for rearranging string---------#
+
+
         st1 = top_idx
         st2 = bottom_idx
         string_top = []
@@ -34,7 +36,8 @@ def Billboard(txt1,txt2):
         controler = 0
 
 
-
+    #-----------------start infinite loop------------#
+    
         while True:
 
             press = input("Enter q/Q to quite or any key to continue: ")
@@ -43,6 +46,9 @@ def Billboard(txt1,txt2):
 
 
             else:
+
+    #-----------------Top String Work-----------------#
+
                 i = 0
                 if controler ==0:
                     while i < n1:
@@ -63,7 +69,10 @@ def Billboard(txt1,txt2):
                         i +=1
                 print()
                 temp=string_top[0]
-      
+
+
+    #-----------------Bottom String Work--------------#
+
                 if controler == 0:
                     i = 0
                     while i < n1:
