@@ -29,13 +29,37 @@ class LinkedList:
         i = 0
         tail = self.head
         while tail.next != None:
+            tail = tail.next
             i +=1
-            return i
+        return i-1
     def insert(self,elem,idx):
-        pass
+        count = self.countNode()
+        tail = self.head
+        i = 0
+        n = Node(elem,None)
+        print(n.elem)
+        if 0<=idx< count:
+            while i < idx:
+                tail = tail.next
+                i +=1
+            n.next = tail.next
+            tail.next = n
+            return self.traverse()
+        else:
+            while i < idx:
+                tail = tail.next
+                i +=1
+            tail.next = n
+            print("run")
+            return self.traverse()
 
+        # else:
+        #     return ("Invalid Index")
 h1 = LinkedList(a)
 trv = h1.traverse()
 count = h1.countNode()
 print(trv)
-# print(count)
+ins = h1.insert(50,3)
+print(ins)
+ins2=h1.insert(60,6)
+print(ins2)
