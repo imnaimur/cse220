@@ -128,18 +128,29 @@ class DoublyList:
             tail.next = self.head.next
             rem = self.head.element
             self.head = self.head.next
+            self.head.prev = tail
         elif idx == count -1:
             while i < idx-1:
                 tail = tail.next
                 i +=1
             rem = tail.next
-            rem = tail.element
+            rem = rem.element
             tail.next = self.head
             self.head.prev = tail
-            print(tail2.prev,self.head)
         else:
-            tail1 = self.head
-            tail2 = self.head
+            while i < idx-1:
+                tail = tail.next
+                i +=1
+            i = 0
+            while i < idx:
+                tail2 = tail2.next
+                i +=1
+            rem = tail2.element
+            tail2 = tail2.next
+            tail.next = tail2
+            tail2.prev = tail
+            
+            
         return str(rem)
     else:
         return None
@@ -198,10 +209,10 @@ h3.forwardprint() # This should print: 10,20,30,40,50,60,70.
 # removes at the given index. returns element of the removed node. Check validity of index. return None if index is invalid.
 print("Removed element: "+ h3.remove(0)) # This should print: Removed element: 10
 h3.forwardprint() # This should print: 20,30,40,50,60,70.  
-# h3.backwardprint() # This should print: 70,60,50,40,30,20.  
-# print("Removed element: "+ h3.remove(3)) # This should print: Removed element: 50
-# h3.forwardprint() # This should print: 20,30,40,60,70.  
-# h3.backwardprint() # This should print: 70,60,40,30,20.  
-# print("Removed element: "+ h3.remove(4)) # This should print: Removed element: 70
-# h3.forwardprint() # This should print: 20,30,40,60. 
-# h3.backwardprint() # This should print: 60,40,30,20.
+h3.backwardprint() # This should print: 70,60,50,40,30,20.  
+print("Removed element: "+ h3.remove(3)) # This should print: Removed element: 50
+h3.forwardprint() # This should print: 20,30,40,60,70.  
+h3.backwardprint() # This should print: 70,60,40,30,20.  
+print("Removed element: "+ h3.remove(4)) # This should print: Removed element: 70
+h3.forwardprint() # This should print: 20,30,40,60. 
+h3.backwardprint() # This should print: 60,40,30,20.
