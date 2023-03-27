@@ -1,3 +1,18 @@
+class Node:
+     def __init__(self,x,y) -> None:
+          self.element = x
+          self.next = y
+class LinkedList:
+     def __init__(self,arr) -> None:
+          self.head = Node(arr[0],None)
+          tail = self.head
+          i = 1
+          while i<len(arr):
+               n = Node(arr[i],None)
+               
+          
+
+
 class Stack:
     def __init__(self) -> None:
         # self.exp = exp

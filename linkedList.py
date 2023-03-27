@@ -35,6 +35,11 @@ class LinkedList:
             tail = tail.next
         print(count)
 
+    def backward(self):
+        s = ''
+        tail = self.head
+        while tail.prev != self.head:
+
 a = [10,20,30,40,50]
 h1 = LinkedList(a)
 h1.traverseList()
