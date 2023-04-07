@@ -16,9 +16,11 @@ class HashTable:
         self.k = [0] * len(arr)
         for i in arr:
             idx = self.hashCal(i)
-            x = self.index(idx)
+            x = self.index(idx) #funtion
             self.k[x] = i
         return self.k 
+    
+    #function for index detecting
     def index(self,idx):
         if idx > len(self.k)-1:
             idx = 0
