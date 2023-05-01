@@ -80,3 +80,13 @@ p = buildList(arr)
 while p != None:
     print(p.elem)
     p = p.next
+
+
+z = buildList(arr)
+def printRev(root):
+    if root == None:
+        return
+    printRev(root.next)
+    print(root.elem)
+
+printRev(z)
