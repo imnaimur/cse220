@@ -61,32 +61,45 @@
 #----------------- Recursion -----------------#
 
 
-class Node:
-    def __init__(self,elem,next) -> None:
-        self.next = next
-        self.elem = elem
+# class Node:
+#     def __init__(self,elem,next) -> None:
+#         self.next = next
+#         self.elem = elem
 
 
-def buildList(arr,i=0):
-    if i == len(arr):
-        return
-    root = Node(arr[i],None)
-    i +=1
-    root.next = buildList(arr,i)
-    return root
+# def buildList(arr,i=0):
+#     if i == len(arr):
+#         return
+#     root = Node(arr[i],None)
+#     i +=1
+#     root.next = buildList(arr,i)
+#     return root
 
-arr = [10,20,30]
-p = buildList(arr)
-while p != None:
-    print(p.elem)
-    p = p.next
+# arr = [10,20,30]
+# p = buildList(arr)
+# while p != None:
+#     print(p.elem)
+#     p = p.next
 
 
-z = buildList(arr)
-def printRev(root):
-    if root == None:
-        return
-    printRev(root.next)
-    print(root.elem)
+# z = buildList(arr)
+# def printRev(root):
+#     if root == None:
+#         return
+#     printRev(root.next)
+#     print(root.elem)
 
-printRev(z)
+# printRev(z)
+
+
+
+def fibo(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibo(n-1) + fibo(n-2)
+
+
+print(fibo(4))
+    
