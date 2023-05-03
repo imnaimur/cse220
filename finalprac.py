@@ -104,25 +104,71 @@ def fibo(n):
 # print(fibo(4))
     
 
+# class Node:
+#     def __init__(self,elem,next,prev) -> None:
+#         self.elem = elem
+#         self.next = next
+#         self.prev = prev
+
+# def linkedList(arr,n,i=0):
+#     if i == n:
+#         return 
+#     head = Node(arr[i],None,None)
+#     i += 1
+#     head.next = linkedList(arr,n,i)
+#     if head.next != None:
+#         head.next.prev = head
+
+    
+    
+
+# arr = [10,20,30,40,50] 
+
+# p = linkedList(arr,len(arr))
+
+
+#-------------- Tree ------------#
+
 class Node:
-    def __init__(self,elem,next,prev) -> None:
+    def __init__(self,elem) -> None:
         self.elem = elem
-        self.next = next
-        self.prev = prev
+        self.left = None
+        self.right = None
+# def addNode(arr,n,i):
+#     root = None
+#     if i < n:
+#         # if arr[i]!= None:
+#             root = Node(arr[i])
+#             root.left = addNode(arr,n,i*2)
+#             root.right = addNode(arr,n,i*2+1)
+#     return root
+# arr = [None,10,20,30,40,50] 
+# root = addNode(arr,len(arr),1)
+# for i in range(1,len(arr)):
+#     addNode(arr,len(arr),i)
 
-def linkedList(arr,n,i=0):
-    if i == n:
-        return 
-    head = Node(arr[i],None,None)
-    i += 1
-    head.next = linkedList(arr,n,i)
-    if head.next != None:
-        head.next.prev = head
 
-    
-    
+def addNode(root,i):
+    if i< root.elem and root.left == None:
+        n = Node(i)
+        root.left = n
+    elif i > root.elem and root.right == None:
+        root.right = Node(i)
+    if i < root.elem and root.left != None:
+        addNode(root.left,i)
+    elif i < root.elem and root.right != None:
+        addNode(root.right,i)
 
-arr = [10,20,30,40,50]
+arr = [70,40,20,60,10,30,50,80]
 
-p = linkedList(arr,len(arr))
+root = Node(arr[0])
+for x in range(1,len(arr)):
+    addNode(root,arr[x])
 
+def inOrder(root):
+    if root!= None:
+        inOrder(root.left)
+        print(root.elem, end= "-->")
+        inOrder(root.right)
+
+inOrder(root)
