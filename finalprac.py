@@ -101,5 +101,28 @@ def fibo(n):
     return fibo(n-1) + fibo(n-2)
 
 
-print(fibo(4))
+# print(fibo(4))
     
+
+class Node:
+    def __init__(self,elem,next,prev) -> None:
+        self.elem = elem
+        self.next = next
+        self.prev = prev
+
+def linkedList(arr,n,i=0):
+    if i == n:
+        return 
+    head = Node(arr[i],None,None)
+    i += 1
+    head.next = linkedList(arr,n,i)
+    if head.next != None:
+        head.next.prev = head
+
+    
+    
+
+arr = [10,20,30,40,50]
+
+p = linkedList(arr,len(arr))
+
